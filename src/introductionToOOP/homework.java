@@ -49,7 +49,7 @@ public class homework {
         Time.dataInport();
         int timeInSec = 0;
         Time.getTheFullNumberSec(timeInSec);
-        printTimeInSec(Time.hour, Time.min, Time.sec);
+        Time.printTimeInSec(Time.hour, Time.min, Time.sec);
     }
 
     //Ввод времени

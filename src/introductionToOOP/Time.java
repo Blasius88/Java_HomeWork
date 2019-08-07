@@ -48,14 +48,14 @@ public class Time {
         }
     }
 
-    public static void printTimeInSec(int timeInSec) {
+    private static void printTimeInSec(int timeInSec) {
         //Конструктор который принемает 1 параметр
         Time time = new Time();
         time.fullSec = timeInSec;
         System.out.println("Время в секундах = " + time.fullSec);
     }
 
-    private static void printTimeInSec(int hour, int min, int sec) {
+    public static void printTimeInSec(int hour, int min, int sec) {
         //конструцтро который принимает три параметра
         Time time = new Time();
         time.hour = hour;
