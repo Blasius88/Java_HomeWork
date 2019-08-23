@@ -8,6 +8,7 @@ public class Time {
     public static int hour = 0;
     public int fullSec;
 
+
     public static void dataInport() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите время в формате hh:mm:ss");
