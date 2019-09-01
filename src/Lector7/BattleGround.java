@@ -20,19 +20,19 @@ public class BattleGround {
                 Warrior.heroPick = true;
                 Hero.heath = 1200;
                 NumberOfEnemy();
-                GameProcess.takeDamage();
+                GameProcess.colEmeny();
                 break;
             case 2:
                 Mage.heroPick = true;
                 Hero.heath = 800;
                 NumberOfEnemy();
-                GameProcess.takeDamage();
+                GameProcess.colEmeny();
                 break;
             case 3:
                 Archer.heroPick = true;
                 Hero.heath = 1000;
                 NumberOfEnemy();
-                GameProcess.takeDamage();
+                GameProcess.colEmeny();
                 break;
         }
     }

@@ -4,9 +4,10 @@ import Lector7.BattleScenario.OneEnemy;
 import Lector7.BattleScenario.SomeEnemy;
 import Lector7.Enemy.Enemy;
 
-public class GameProcess {
+public interface GameProcess {
 
-    public static void takeDamage ()
+    //takeDamage вывести в интерфейс
+    public static void colEmeny ()
     {
         //нужно для того что бы посчитать сколько видов врагов напали
         int a = 0;
