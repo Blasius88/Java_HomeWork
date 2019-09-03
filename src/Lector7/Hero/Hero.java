@@ -1,28 +1,24 @@
 package Lector7.Hero;
 
+import Lector7.Mortal;
+
 import java.util.Scanner;
 
-public class Hero {
+public class Hero implements Mortal {
     //имя героя
-    public static String name;
+    public String name;
+
+    // сила атаки героя
+    public int damage;
+
+    //здоровье героя
+    public int health;
+
 
     String getName() {
         return name;
     }
-
-    //классификация героя
-    public static int classification;
-
-    int getClassification() {
-        return classification;
-    }
-
-    void setClassification(int classification) {
-        this.classification = classification;
-    }
-
-    // сила атаки героя
-    public static int damage;
+    void setName(String name) {this.name = name; }
 
     int getDamage() {
         return damage;
@@ -32,32 +28,17 @@ public class Hero {
         this.damage = damage;
     }
 
-    //здоровье героя
-    public static int heath;
-
-    int getHeath() {
-        return heath;
+    int getHealth() {
+        return health;
     }
 
-    void setHeath(int heath) {
-        this.heath = heath;
+    void setHealth(int health) {
+        this.health = health;
     }
 
-    //Выбераем имя героя
-    public static void name() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Введите имя героя: ");
-        String name = sc.nextLine();
-        Hero.name = name;
-    }
 
-    //Выбераем класс героя
-    public static void classHero() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Выберите спецификацию героя:\n" +
-                "1 - Воин\n" +
-                "2 - Маг\n" +
-                "3 - Лучник");
-        Hero.classification = sc.nextInt();
+    @Override
+    public boolean isAlive() {
+        return health > 0;
     }
 }

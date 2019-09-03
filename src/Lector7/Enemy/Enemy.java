@@ -1,21 +1,20 @@
 package Lector7.Enemy;
 
+import Lector7.Mortal;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Enemy {
+public class Enemy implements Mortal {
     //Здоровье
-    public static int health;
-    int getHealth(){return health;}
-    void setHealth (int health){this.health = health; }
+    public int health;
+
     //атака
-    public static int damage;
-    int getDamage(){return damage; }
-    void setDamage(int damage){this.damage = damage; }
+    public int damage;
+
     //кол-во врагов
-    public static int numberOfEnemy;
-    int getNumberOfEnemy(){return numberOfEnemy; }
-    void setNumberOfEnemy(int numberOfEnemy) {this.numberOfEnemy=numberOfEnemy; }
+    public int numberOfEnemy;
+
     //проверяем кто из врагов активен
     public static boolean zomby = false;
 
@@ -24,15 +23,22 @@ public class Enemy {
     public static boolean vampire = false;
 
     //количество активных персонажей
-    public static int zombyCol;
-    int getZombyCol(){return zombyCol; }
-    void setZombyCol( int zombyCol) {this.zombyCol = zombyCol; }
+    public int enCol;
 
-    public static int wolfCol;
-    int getWolfCol(){return wolfCol; }
-    void setWolfCol( int wolfCol) {this.wolfCol = wolfCol; }
+    int getHealth(){return health;}
+    void setHealth (int health){this.health = health; }
 
-    public static int vampireCol;
-    int getVampireCol(){return vampireCol; }
-    void setVampireCol( int vampireCol) {this.vampireCol = vampireCol; }
+    int getDamage(){return damage; }
+    void setDamage(int damage){this.damage = damage; }
+
+    int getNumberOfEnemy(){return numberOfEnemy; }
+    void setNumberOfEnemy(int numberOfEnemy) {this.numberOfEnemy=numberOfEnemy; }
+
+    int getEnCol(){return enCol; }
+    void setEnCol(int enCol) {this.enCol = enCol; }
+
+    @Override
+    public boolean isAlive() {
+        return health >0 ;
+    }
 }
