@@ -3,25 +3,26 @@ package Lector7.Enemy;
 import Lector7.BattleScenario.AttackEmeny;
 
 public class ColEmeny {
+
     public static Enemy enemy = new Enemy();
-    //takeDamage вывести в интерфейс
+
     public static void colEmeny() {
         //нужно для того что бы посчитать сколько видов врагов напали
         int a = 0;
         String attackingEnemies = "";
-        if (WolfDamage.wolf.enCol != 0) {
+        if (AttackEmeny.wolf.enCol != 0) {
             a++;
-            attackingEnemies += "Волк в кол " + WolfDamage.wolf.enCol + "шт. ";
+            attackingEnemies += "Волк в кол " + AttackEmeny.wolf.enCol + "шт. ";
         }
-        if (VampireDamage.vampire.enCol != 0) {
+        if (AttackEmeny.vampire.enCol != 0) {
             a++;
-            attackingEnemies += "Вампир в кол " + VampireDamage.vampire.enCol + "шт. ";
+            attackingEnemies += "Вампир в кол " + AttackEmeny.vampire.enCol + "шт. ";
         }
-        if (ZombyDamage.zomby.enCol != 0) {
+        if (AttackEmeny.zomby.enCol != 0) {
             a++;
-            attackingEnemies += "Зомби в кол " + ZombyDamage.zomby.enCol + "шт. ";
+            attackingEnemies += "Зомби в кол " + AttackEmeny.zomby.enCol + "шт. ";
         }
-        if (a == 1 && WolfDamage.wolf.enCol > 1 || a == 1 && ZombyDamage.zomby.enCol > 1 || a == 1 && VampireDamage.vampire.enCol > 1 || a > 1)
+        if (a == 1 && AttackEmeny.wolf.enCol > 1 || a == 1 && AttackEmeny.zomby.enCol > 1 || a == 1 && AttackEmeny.vampire.enCol > 1 || a > 1)
             System.out.println("На вашего героя напали " + attackingEnemies);
         else
             System.out.println("На вашего героя напал " + attackingEnemies);
@@ -48,24 +49,27 @@ public class ColEmeny {
 
     //кто именно наподает на героя
     public static void choiceOfSteps(int col) {
-        ZombyDamage.zomby.enCol = 0;
-        VampireDamage.vampire.enCol = 0;
-        WolfDamage.wolf.enCol = 0;
+        AttackEmeny.zomby.enCol = 0;
+        AttackEmeny.vampire.enCol = 0;
+        AttackEmeny.wolf.enCol = 0;
         int a = 0;
         for (int i = 1; i <= col; i++) {
             a = (int) (1 + Math.random()*2);
             if (a == 1) {
                 enemy.vampire = true;
                 Vampire.enemyPick = true;
-                VampireDamage.vampire.enCol++;
+                AttackEmeny.vampire.enCol++;
+                AttackEmeny.vampire.health = 1000;
             } else if (a == 2) {
                 enemy.wolf = true;
                 Wolf.enemyPick = true;
-                WolfDamage.wolf.enCol++;
+                AttackEmeny.wolf.enCol++;
+                AttackEmeny.wolf.health = 800;
             } else if (a == 3) {
                 enemy.zomby = true;
                 Zomby.enemyPick = true;
-                ZombyDamage.zomby.enCol++;
+                AttackEmeny.zomby.enCol++;
+                AttackEmeny.zomby.health = 900;
             }
         }
     }

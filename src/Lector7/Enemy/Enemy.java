@@ -12,8 +12,14 @@ public class Enemy implements Mortal {
     //атака
     public int damage;
 
+    //Выбор атаки врага
+    public int attacEnemy;
+
     //кол-во врагов
     public int numberOfEnemy;
+
+    //количество активных персонажей
+    public int enCol;
 
     //проверяем кто из врагов активен
     public static boolean zomby = false;
@@ -22,14 +28,20 @@ public class Enemy implements Mortal {
 
     public static boolean vampire = false;
 
-    //количество активных персонажей
-    public int enCol;
+
 
     int getHealth(){return health;}
     void setHealth (int health){this.health = health; }
 
     int getDamage(){return damage; }
     void setDamage(int damage){this.damage = damage; }
+
+    public int getAttacEnemy() {
+        return attacEnemy;
+    }
+    public void setAttacEnemy(int attacEnemy) {
+        this.attacEnemy = attacEnemy;
+    }
 
     int getNumberOfEnemy(){return numberOfEnemy; }
     void setNumberOfEnemy(int numberOfEnemy) {this.numberOfEnemy=numberOfEnemy; }

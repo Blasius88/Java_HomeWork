@@ -14,6 +14,7 @@ public class Hero implements Mortal {
     //здоровье героя
     public int health;
 
+    public int HeroAttac;
 
     String getName() {
         return name;
@@ -23,7 +24,6 @@ public class Hero implements Mortal {
     int getDamage() {
         return damage;
     }
-
     void setDamage(int damage) {
         this.damage = damage;
     }
@@ -31,11 +31,16 @@ public class Hero implements Mortal {
     int getHealth() {
         return health;
     }
-
     void setHealth(int health) {
         this.health = health;
     }
 
+    public int getHeroAttac() {
+        return HeroAttac;
+    }
+    public void setHeroAttac(int heroAttac) {
+        HeroAttac = heroAttac;
+    }
 
     @Override
     public boolean isAlive() {

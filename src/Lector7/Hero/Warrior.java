@@ -5,20 +5,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Warrior extends Hero {
-
-    // здоровье
     @Override
-    void setHealth(int health) {
-        super.setHealth(health);
+    public void setHeroAttac(int heroAttac) {
+        super.setHeroAttac(heroAttac);
     }
 
-    @Override
-    void setName(String name) {
-        super.setName(name);
-    }
-
-    @Override
-    int getDamage() {
-        return super.getDamage();
+    public int setHeroAttac()
+    {
+        System.out.println("");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберите способ атаки:\n" +
+                "1 - обычная атака\n" +
+                "2 - супер атака\n");
+        int a = sc.nextInt();
+        int randDamage = 0;
+        switch (a){
+            case 1:
+                randDamage = (int)(1 + Math.random()*100);
+                break;
+            case 2:
+                randDamage = (int)(100 + Math.random()*1500);
+                break;
+        }
+        return randDamage;
     }
 }

@@ -18,7 +18,7 @@ public class BattleGround {
                 ColEmeny.colEmeny();
                 boolean finishFight = false;
                 while (!finishFight) {
-                    warrior.damage = WarriorDamage.attackEnemy();
+                    warrior.damage = warrior.setHeroAttac();
                     warrior.health = 1200;
                     finishFight = AttackEmeny.processAttacksEnemy(warrior.damage, warrior.health, warrior.name);
                 }
@@ -31,7 +31,7 @@ public class BattleGround {
                 ColEmeny.colEmeny();
                 finishFight = false;
                 while (!finishFight) {
-                    mage.damage = MageDamage.attackEnemy();
+                    mage.damage = mage.setHeroAttac();
                     mage.health = 800;
                     finishFight = AttackEmeny.processAttacksEnemy(mage.damage, mage.health, mage.name);
                 }
@@ -44,7 +44,7 @@ public class BattleGround {
                 ColEmeny.colEmeny();
                 finishFight = false;
                 while (!finishFight) {
-                    archer.damage = ArcherDamage.attackEnemy();
+                    archer.damage = archer.setHeroAttac();
                     archer.health = 1200;
                     finishFight = AttackEmeny.processAttacksEnemy(archer.damage, archer.health, archer.name);
                 }

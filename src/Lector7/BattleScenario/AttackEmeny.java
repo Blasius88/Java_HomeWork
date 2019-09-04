@@ -23,6 +23,12 @@ public class AttackEmeny {
     public static int[] healthEnemy;
     public static int[] damageEnemy;
 
+    public static Zomby zomby = new Zomby();
+
+    public static Vampire vampire = new Vampire();
+
+    public static Wolf wolf = new Wolf();
+
     public static void atackEnemy() {
         // проверем присвоено ли первому врагу значение
         nameEnemy = new String[colEmeny];
@@ -31,52 +37,45 @@ public class AttackEmeny {
         boolean dataFilling = false;
         //иницилизация врагов
         for (int i = 0; i < colEmeny; i++) {
-            if (VampireDamage.vampire.enCol != 0 && VampireDamage.vampire.enCol > i) {
+            if (vampire.enCol != 0 && vampire.enCol > i) {
                 if (nameEnemy[i] == null) {
                     nameEnemy[i] = "Вампир";
-                    VampireDamage.inci();
-                    healthEnemy[i] = VampireDamage.vampire.health;
+                    healthEnemy[i] = vampire.health;
                     System.out.println("Здоровье вампира " + healthEnemy[i]);
                     dataFilling = true;
                 } else if (nameEnemy[i] != null) {
                     if (i == 0) {
                         nameEnemy[i + 1] = "Вампир";
-                        VampireDamage.inci();
-                        healthEnemy[i + 1] = VampireDamage.vampire.health;
+                        healthEnemy[i + 1] = vampire.health;
                         System.out.println("Здоровье вампира " + healthEnemy[i + 1]);
                     } else {
                         nameEnemy[i] = "Вампир";
-                        VampireDamage.inci();
-                        healthEnemy[i] = VampireDamage.vampire.health;
+                        healthEnemy[i] = vampire.health;
                         System.out.println("Здоровье вампира " + healthEnemy[i]);
                     }
                 }
-            } else if (ZombyDamage.zomby.enCol != 0) {
+            } else if (zomby.enCol != 0) {
                 if (nameEnemy[i] == null) {
                     nameEnemy[i] = "Зомби";
-                    ZombyDamage.inci();
-                    healthEnemy[i] = ZombyDamage.zomby.health;
+                    healthEnemy[i] = zomby.health;
                     System.out.println("Здоровье зомби" + healthEnemy[i]);
                 } else if (nameEnemy[i] != null) {
                     if (i == 0) {
                         nameEnemy[i + 1] = "Зомби";
-                        ZombyDamage.inci();
-                        healthEnemy[i + 1] = ZombyDamage.zomby.health;
+                        healthEnemy[i + 1] = zomby.health;
                         System.out.println("Здоровье зомби" + healthEnemy[i + 1]);
                     }
                 }
-            } else if (WolfDamage.wolf.enCol != 0) {
+            } else if (wolf.enCol != 0) {
                 if (nameEnemy[i] == null) {
                     nameEnemy[i] = "Волк";
-                    WolfDamage.inci();
-                    healthEnemy[i] = WolfDamage.wolf.health;
+                    healthEnemy[i] = wolf.health;
                     System.out.println("Здоровье волка " + healthEnemy[i]);
                     dataFilling = true;
                 } else if (nameEnemy[i] != null) {
                     if (i == 0) {
                         nameEnemy[i + 1] = "Волк";
-                        WolfDamage.inci();
-                        healthEnemy[i + 1] = WolfDamage.wolf.health;
+                        healthEnemy[i + 1] = wolf.health;
                         System.out.println("Здоровье волка " + healthEnemy[i + 1]);
                     }
                 }
@@ -104,7 +103,7 @@ public class AttackEmeny {
                     for (int i = 0; i < temp; i++) {
                         nameEnemy[i] = nameEnemy[i + 1];
                         healthEnemy[i] = healthEnemy[i + 1];
-                        if (temp > 2) {
+                        if (temp >= 2) {
                         temp--;
                         break;
                         }
@@ -119,15 +118,21 @@ public class AttackEmeny {
             printAndLogic();
             if (healthEnemy[1] <= 0) {
                 if (colEmeny > 2) {
-                    for (int i = 1; i < colEmeny; i++) {
+                    int temp = colEmeny;
+                    for (int i = 0; i < temp; i++) {
                         nameEnemy[i] = nameEnemy[i + 1];
                         healthEnemy[i] = healthEnemy[i + 1];
+                        if (temp >= 2) {
+                            temp--;
+                            break;
+                        }
                     }
                     colEmeny--;
                 } else {
                     oneEnemyDead = true;
                 }
             }
+
         } else if (numberEnemy == 3) {
             healthEnemy[2] -= damage;
             printAndLogic();
@@ -154,9 +159,9 @@ public class AttackEmeny {
         for (int i = 0; i < colEmeny; i++) {
             if (nameEnemy[i] == "Вампир") {
                 if (healthEnemy[i] > 0) {
-                    VampireDamage.vampDamage();
-                    damageEnemy[i] = VampireDamage.vampire.damage;
-                    healthEnemy[i] += VampireDamage.vampire.health;
+                    vampire.setAttacEnemy();
+                    damageEnemy[i] = vampire.damage;
+                    healthEnemy[i] += vampire.health;
                 } else {
                     damageEnemy[i] = 0;
                     healthEnemy[i] += 0;
@@ -164,17 +169,17 @@ public class AttackEmeny {
 
             } else if (nameEnemy[i] == "Зомби") {
                 if (healthEnemy[i] > 0) {
-                    ZombyDamage.zombDamage();
-                    damageEnemy[i] = ZombyDamage.zomby.damage;
-                    healthEnemy[i] += ZombyDamage.zomby.health;
+                    zomby.setAttacEnemy();
+                    damageEnemy[i] = zomby.damage;
+                    healthEnemy[i] += zomby.health;
                 } else {
                     damageEnemy[i] = 0;
                     healthEnemy[i] += 0;
                 }
             } else if (nameEnemy[i] == "Волк") {
                 if (healthEnemy[i] > 0) {
-                    WolfDamage.wolfDamage();
-                    damageEnemy[i] = WolfDamage.wolf.damage;
+                    wolf.setAttacEnemyWolf();
+                    damageEnemy[i] = wolf.damage;
                 } else {
                     damageEnemy[i] = 0;
                 }
@@ -203,6 +208,8 @@ public class AttackEmeny {
         }
         return finishFight;
     }
+
+
 
     public static void battle (String name)
     {
