@@ -13,6 +13,7 @@ public class MainTask7 {
         print(str);
         str = GetIntThree.getIntTree(num);
         print(str);
+        System.out.println(str);
     }
 
     public static void print(String str) {

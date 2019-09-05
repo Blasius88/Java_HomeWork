@@ -4,7 +4,33 @@ public class GetIntThree {
     public static String getIntTree (int num){
         Long m = System.nanoTime();
         String str ="";
-
+        if (num > 9999999999l)
+        {
+            str = "0000000000";
+        }
+        else {
+            if (num < 10) {
+                str = str.concat("000000000" + num);
+            } else if (num > 9 && num < 100) {
+                str = str.concat("00000000" + num);
+            } else if (num > 99 && num < 1000) {
+                str = str.concat("0000000" + num);
+            } else if (num > 999 && num < 10000) {
+                str = str.concat("000000" + num);
+            } else if (num > 9999 && num < 100000) {
+                str = str.concat("00000" + num);
+            } else if (num > 99999 && num < 1000000) {
+                str = str.concat("0000" + num);
+            } else if (num > 999999 && num < 10000000) {
+                str = str.concat("000" + num);
+            } else if (num > 9999999 && num < 100000000) {
+                str = str.concat("00" + num);
+            } else if (num > 99999999 && num < 1000000000) {
+                str = str.concat("0" + num);
+            } else if (num > 999999999 && num < 10000000000L) {
+                str = str.concat("" + num);
+            }
+        }
         m = System.nanoTime() - m;
         System.out.printf("Функция выполнялось %,9.3f ms\n", m / 1_000_000.0);
         return str;
