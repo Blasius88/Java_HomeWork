@@ -133,6 +133,7 @@ public class AttackEmeny {
                 }
             }
 
+
         } else if (numberEnemy == 3) {
             healthEnemy[2] -= damage;
             printAndLogic();
