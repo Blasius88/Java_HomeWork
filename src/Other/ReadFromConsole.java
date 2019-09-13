@@ -9,4 +9,11 @@ public class ReadFromConsole {
         str = sc.nextLine();
         return str;
     }
+
+    public static int readFromConsoleInt (){
+        int str ;
+        Scanner sc = new Scanner(System.in);
+        str = sc.nextInt();
+        return str;
+    }
 }
