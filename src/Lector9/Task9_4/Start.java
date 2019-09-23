@@ -12,11 +12,8 @@ public class Start {
         double one = ReadFromConsole.readFromConsoleDouble();
         System.out.println("Введите 2 веществаенное число");
         double two = ReadFromConsole.readFromConsoleDouble();
-        MathClass<Number> mathClass = new MathClass<>(a);
-        MathClass<Number> mathClass1 = new MathClass<>(b);
-        MathUtil.swap(mathClass, mathClass1);
-        MathClass<Number> mathClass2 = new MathClass<>(one);
-        MathClass<Number> mathClass3 = new MathClass<>(two);
-        MathUtil.swap(mathClass2, mathClass3);
+        MathClass<Number, Number> mathClass = new MathClass<>();
+        System.out.println("Sum one :" + mathClass.division(a,b));
+        System.out.println("Sum two :" + mathClass.division(one,two));
     }
 }
