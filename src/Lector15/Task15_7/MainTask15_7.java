@@ -26,6 +26,7 @@ public class MainTask15_7 {
             while (iterator.hasPrevious()) {
                 bufferedWriter.write((char) iterator.previous());
             }
+            bufferedWriter.close();
         } catch (Exception ex) {
             ex.printStackTrace();
         }
