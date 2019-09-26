@@ -16,10 +16,7 @@ public class StartTask15_2 {
             InputStreamReader inputRead = null;
             int b = 0;
             LinkedList<String> linkedList = new LinkedList<>();
-            System.out.println("Введите строку нахождения фаийла");
-            String locationFile = ReadFromConsole.readFromConsoleStr();
-            File myFile = new File(locationFile);
-            fileInput = new FileInputStream(locationFile);
+            fileInput = new FileInputStream(ReadFromConsole.findFile());
             inputRead = new InputStreamReader(fileInput, "Windows-1251");
             while ((b = inputRead.read()) != -1) {
                 if (Character.isSpaceChar((char) b)) {

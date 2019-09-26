@@ -9,10 +9,8 @@ import java.util.Random;
 public class MainTask15_5 {
     public static void main(String[] args) {
         try {
-            System.out.println("Введите строку нахождения файла");
-            String locationFile = ReadFromConsole.readFromConsoleStr();
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(locationFile));
-            BufferedReader bufferedReader = new BufferedReader(new FileReader(locationFile));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(ReadFromConsole.findFile()));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(ReadFromConsole.findFile()));
             Random random = new Random();
             for (int i = 0; i < 20; i++) {
                 bufferedWriter.write(Integer.toBinaryString(random.nextInt(1) + 255));

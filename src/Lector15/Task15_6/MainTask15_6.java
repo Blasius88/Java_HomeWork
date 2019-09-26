@@ -6,9 +6,7 @@ import java.io.File;
 
 public class MainTask15_6 {
     public static void main(String[] args) {
-        System.out.println("Введите строку нахождения файла");
-        String locationFile = ReadFromConsole.readFromConsoleStr();
-        File myFile = new File(locationFile);
+        File myFile = new File(ReadFromConsole.findFile());
         recursion(myFile);
     }
 

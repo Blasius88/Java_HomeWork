@@ -14,10 +14,7 @@ public class MainTask15_4 {
             FileInputStream fileInput = null;
             InputStreamReader inputRead = null;
             StringBuffer stringBuffer = new StringBuffer();
-            System.out.println("Введите строку нахождения файла");
-            String locationFile = ReadFromConsole.readFromConsoleStr();
-            File myFile = new File(locationFile);
-            fileInput = new FileInputStream(locationFile);
+            fileInput = new FileInputStream(ReadFromConsole.findFile());
             inputRead = new InputStreamReader(fileInput, "Windows-1251");
             while ((temp = inputRead.read()) != -1) {
                 stringBuffer.append((char) temp);
