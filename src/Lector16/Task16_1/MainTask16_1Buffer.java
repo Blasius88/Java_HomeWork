@@ -3,44 +3,41 @@ package Lector16.Task16_1;
 import Other.ReadFromConsole;
 
 import java.io.*;
-import java.lang.reflect.Field;
 
-public class MainTask16_1 {
+public class MainTask16_1Buffer {
     public static void main(String[] args) {
-        OutputStreamWriter osw = null;
-        InputStreamReader isr = null;
+        BufferedWriter bw = null;
+        BufferedReader br = null;
         int cycle = 5242880; // запись одного символа char в фаил что бы получилось 5 мБ
         String locationFile = ReadFromConsole.findFile();
         try {
-            osw = new OutputStreamWriter(new FileOutputStream(locationFile));
-            isr = new InputStreamReader(new FileInputStream(locationFile));
+            bw = new BufferedWriter( new FileWriter(locationFile));
+            br = new BufferedReader(new FileReader(locationFile));
             long temp1 = System.nanoTime();
             for (int i = 0; i < cycle; i ++)
             {
-                osw.write("a");
+                bw.write('a');
             }
-            long temp2 =System.nanoTime();
-            while (isr.ready()){
-                isr.ready();
+            long temp2 = System.nanoTime();
+            while (br.ready())
+            {
+                br.read();
             }
             long temp3 = System.nanoTime();
-            System.out.printf("запись %d\nЧтение %d", temp2 - temp1, temp3 - temp2);
-        } catch (Exception excp){
-            excp.printStackTrace();
-        }
-        finally {
-            if (isr != null)
-            {
+            System.out.printf("запись %d\nчтение %d",temp2 - temp1, temp3 - temp2);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+            if (bw != null) {
                 try {
-                    isr.close();
+                    bw.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if (osw != null)
-            {
+            if (br != null) {
                 try {
-                    osw.close();
+                    br.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
