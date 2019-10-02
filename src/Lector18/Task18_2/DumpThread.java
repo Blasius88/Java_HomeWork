@@ -35,5 +35,4 @@ public class DumpThread extends Thread {
     FactoryDump getDump() {
         return dump;
     }
-
 }

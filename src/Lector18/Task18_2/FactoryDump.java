@@ -10,7 +10,6 @@ public class FactoryDump {
     private Detalis[] detalis = Detalis.values();
     Random random = new Random();
 
-    //add to evry details 0 value
     public FactoryDump() {
         Random random = new Random();
         for (int i = 0; i < detalis.length; i++) {
@@ -18,7 +17,6 @@ public class FactoryDump {
         }
     }
 
-    //add to dump 20 random details
     public void detailUtill() {
         int randomDetail = 0;
         int value = 0;

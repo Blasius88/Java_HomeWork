@@ -6,7 +6,7 @@ public enum Detalis {
     Left_Hand,
     Right_Hand,
     Left_Leg,
-    Ringt_leg,
+    Right_leg,
     CPU,
     HDD;
 }
