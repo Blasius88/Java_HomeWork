@@ -10,7 +10,7 @@ public class MainTask11_4 {
         TreeSet<Integer> treeSet = new TreeSet<>();
         Random random = new Random();
         for (int i = 0; i < 10; i++) {
-            treeSet.add(random.nextInt(3) + 1);
+            treeSet.add(random.nextInt(100) + 1);
         }
         ArrayList<Integer> blackBox = new ArrayList<>();
         blackBox.addAll(treeSet);
