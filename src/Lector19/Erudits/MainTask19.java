@@ -1,4 +1,4 @@
-package Lector19.Task19_1;
+package Lector19.Erudits;
 
 public class MainTask19 {
     public static void main(String[] args) {

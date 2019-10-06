@@ -1,4 +1,4 @@
-package Lector19.Task19_1;
+package Lector19.Erudits;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -16,7 +16,7 @@ public class FlunkyThread extends Thread {
 
     private void take(Dump dump) {
         if (canTake()) {
-            dump.getDetail(Details.randomDetail(), details);
+            dump.getDetail(Factory.randomDetail(), details);
         }
     }
 
@@ -48,7 +48,7 @@ public class FlunkyThread extends Thread {
 
     private String robots(Map<Details, Integer> details) {
         int number = Collections.min(details.values());
-        return "Количество роботов которое 1 ученый может собрать из деталей: " + number;
+        return "1 ученый собрал роботов: " + number;
     }
 
 }

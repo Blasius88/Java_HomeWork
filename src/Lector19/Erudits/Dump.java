@@ -1,4 +1,4 @@
-package Lector19.Task19_1;
+package Lector19.Erudits;
 
 import java.util.HashMap;
 import java.util.Map;
